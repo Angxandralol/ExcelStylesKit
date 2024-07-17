@@ -99,3 +99,16 @@ class Header(Excel):
                     cell = self.get_worksheet()[f'{alphabet_num[index_col]}{index_row}']
                     cell.alignment = aligment
         self.save_styles()
+
+    def style_height_row(self, height=40) -> None:
+        if not self.get_sheetname():
+            sheetnames = self.get_sheetnames()
+            for sheetname in sheetnames: 
+                sheet = self.get_workbook()[sheetname]
+                for index in range(self.__header['start_row'], self.__header['end_row']):
+                    sheet.row_dimensions[index].height = height
+        else:
+            sheet = self.get_workbook()[self.get_sheetname()]
+            for index in range(self.__header['start_row'], self.__header['end_row']):
+                sheet.row_dimensions[index].height = height            
+        self.save_styles()

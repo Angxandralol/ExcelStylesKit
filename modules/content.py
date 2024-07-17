@@ -125,3 +125,16 @@ class Content(Excel):
                     if index_row % 2 == 0: cell.fill = first_fill
                     else: cell.fill = second_fill
         self.save_styles()
+
+    def style_height_row(self, height=40) -> None:
+        if not self.get_sheetname():
+            sheetnames = self.get_sheetnames()
+            for sheetname in sheetnames: 
+                sheet = self.get_workbook()[sheetname]
+                for index in range(self.__content['start_row'], self.__content['end_row']):
+                    sheet.row_dimensions[index].height = height
+        else:
+            sheet = self.get_workbook()[self.get_sheetname()]
+            for index in range(self.__content['start_row'], self.__content['end_row']):
+                sheet.row_dimensions[index].height = height            
+        self.save_styles()

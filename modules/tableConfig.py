@@ -11,6 +11,7 @@ class TableConfig:
     def __init__(self, filepath: str, sheetname: (str | None)=None) -> None:
         self.header = Header(filepath, sheetname)
         self.content = Content(filepath, sheetname)
+        self.__total_rows()
 
     def __total_rows(self) -> None:
         header = self.header.get_header_values()
@@ -38,7 +39,6 @@ class TableConfig:
         self.__cells = cells
 
     def get_total_cells(self) -> dict:
-        self.__total_rows()
         return self.__cells
 
     def style_border(self, color='000000', style='thin') -> None:
@@ -70,4 +70,21 @@ class TableConfig:
                     wb = self.content.get_workbook()                
                     cell = wb[sheetname][f'{alphabet_num[index_col]}{index_row}']
                     cell.border = border
+        self.content.save_styles()
+
+    def style_column_width(self, width=30) -> None:
+        if not self.content.get_sheetname():
+            sheetnames = self.content.get_sheetnames()
+            for sheetname in sheetnames:
+                sheet = self.content.get_workbook()[sheetname]
+                int_start_col = alphabet_str[self.__cells['start_column']]
+                int_end_col = alphabet_str[self.__cells['end_column']] + 1 
+                for index in range(int_start_col, int_end_col):
+                    sheet.column_dimensions[alphabet_num[index]].width = width
+        else:
+            sheet = self.content.get_workbook()[self.content.get_sheetname()]
+            int_start_col = alphabet_str[self.__cells['start_column']]
+            int_end_col = alphabet_str[self.__cells['end_column']] + 1
+            for index in range(int_start_col, int_end_col):
+                sheet.column_dimensions[index].width = width
         self.content.save_styles()
