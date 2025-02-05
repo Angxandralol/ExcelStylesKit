@@ -1,3 +1,9 @@
+# Test Files
+*.xlsx
+*.xls
+*.xlsx#
+*.xls#
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
