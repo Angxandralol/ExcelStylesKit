@@ -1,16 +1,14 @@
 # Documentation - API Reference
-1. [Module `table`](#module-table)
+- [Table Management](#table-management)
     - [Cell](#cell)
     - [Table](#table)
-2. [Module `excel`](#module-excel)
+- [Excel Management](#excel-management)
     - [Excel](#excel)
     - [ExcelStyles](#excelstyles)
 --- 
-
-
-## Module `table`
+## Table Management
 ### Cell
-#### *class* table.Cell(*column*, *row*)
+#### *class* Cell(*column*, *row*)
 Return a cell object based on the column and row.
 
 ##### Parameters
@@ -21,7 +19,7 @@ Return a cell object based on the column and row.
 
 ##### Usage
 ```python
->>> from table import Cell
+>>> from excelstyleskit import Cell
 >>> cell = Cell('A', 1)
 ```
 
@@ -34,7 +32,7 @@ None
 
 ##### Usage
 ```python
->>> from table import Cell
+>>> from excelstyleskit import Cell
 >>> cell = Cell('A', 1)
 >>> cell.get_cell()
 'A1'
@@ -49,7 +47,7 @@ None
 
 ##### Usage
 ```python
->>> from table import Cell
+>>> from excelstyleskit import Cell
 >>> cell = Cell('A', 1)
 >>> cell.get_column()
 'A'
@@ -64,7 +62,7 @@ None
 
 ##### Usage
 ```python
->>> from table import Cell
+>>> from excelstyleskit import Cell
 >>> cell = Cell('A', 1)
 >>> cell.get_row()
 1
@@ -83,22 +81,18 @@ Return a table object based on the first and last column and row.
 | last_row      | int  | The final row of the table.      |
 
 ##### Usage
-|---|------|------|------|------|
 |   |   A  |   B  |   C  |   D  | 
 |---|------|------|------|------|
 | 1 |  A1  |  B1  |  C1  |  D1  | 
-|---|------|------|------|------|
 | 2 |  A2  |  B2  |  C2  |  D2  |
-|---|------|------|------|------|
 | 3 |  A3  |  B3  |  C3  |  D3  |
-|---|------|------|------|------|
 | 4 |  A4  |  B4  |  C4  |  D4  |
-|---|------|------|------|------|
+
 
 In this table, the first cell is the cell 'A1' and the last cell is the cell 'D4'.
 
 ```python
->>> from table import Table
+>>> from excelstyleskit import Table
 >>> table = Table('A', 1, 'D', 4)
 ```
 
@@ -111,7 +105,7 @@ None
 
 ##### Usage
 ```python
->>> from table import Table
+>>> from excelstyleskit import Table
 >>> table = Table('A', 1, 'D', 4)
 >>> table.get_cells()
 [<excelstyleskit.table.cell object, ...>]
@@ -127,7 +121,7 @@ Add the all cells of a row as the header of the table.
 
 ##### Usage
 ```python
->>> from table import Table
+>>> from excelstyleskit import Table
 >>> table = Table('A', 1, 'D', 4)
 >>> table.add_row_header(1)
 ```
@@ -141,7 +135,7 @@ None
 
 ##### Usage
 ```python
->>> from table import Table
+>>> from excelstyleskit import Table
 >>> table = Table('A', 1, 'D', 4)
 >>> table.add_row_header(1)
 >>> table.get_cells_header()
@@ -157,7 +151,7 @@ None
 
 ##### Usage
 ```python
->>> from table import Table
+>>> from excelstyleskit import Table
 >>> table = Table('A', 1, 'D', 4)
 >>> table.add_row_header(1)
 >>> table.get_cells_content()
@@ -175,7 +169,7 @@ Return the all cells of a row.
 
 ##### Usage
 ```python
->>> from table import Table
+>>> from excelstyleskit import Table
 >>> table = Table('A', 1, 'D', 4)
 >>> table.select_row(1)
 [<excelstyleskit.table.cell object, ...>]
@@ -192,7 +186,7 @@ Return a list with the cells in the format 'column' + 'row'.
 
 ##### Usage
 ```python
->>> from table import Table
+>>> from excelstyleskit import Table
 >>> cells = [Cell('A', 1), Cell('B', 1), Cell('C', 1), Cell('D', 1)]
 >>> Table.get_cells_str(cells)
 ['A1', 'B1', 'C1', 'D1']
@@ -209,13 +203,13 @@ Prints all the cells in the format 'column' + 'row'.
 
 ##### Usage
 ```python
->>> from table import Table
+>>> from excelstyleskit import Table
 >>> cells = [Cell('A', 1), Cell('B', 1), Cell('C', 1), Cell('D', 1)]
 >>> Table.view_cells(cells)
 | A1 | B1 | C1 | D1 | 
 ```
 
-## Module `excel`
+## Excel Management
 ### Excel
 #### *class* excel.Excel(*filepath*, *sheetname*)
 Return an Excel object based on the filepath and sheetname.
@@ -228,7 +222,7 @@ Return an Excel object based on the filepath and sheetname.
 
 ##### Usage 
 ```python
->>> from excel import Excel
+>>> from excelstyleskit import Excel
 >>> excel_sheet = Excel('path/to/file.xlsx', 'Sheet1')
 >>> excel = Excel('path/to/file.xlsx')
 ```
@@ -246,7 +240,7 @@ Set the table of the excel.
 
 ##### Usage
 ```python
->>> from excel import Excel
+>>> from excelstyleskit import Excel
 >>> excel = Excel('path/to/file.xlsx')
 >>> excel.set_table('A', 1, 'D', 4)
 ```
@@ -261,7 +255,7 @@ Add the all cells of a row as the header of the table.
 
 ##### Usage
 ```python
->>> from excel import Excel
+>>> from excelstyleskit import Excel
 >>> excel = Excel('path/to/file.xlsx')
 >>> excel.set_table('A', 1, 'D', 4)
 >>> excel.add_row_header(1)
@@ -276,7 +270,7 @@ None
 
 ##### Usage
 ```python
->>> from excel import Excel
+>>> from excelstyleskit import Excel
 >>> excel = Excel('path/to/file.xlsx')
 >>> excel.get_workbook()
 <openpyxl.workbook.workbook.Workbook object>
@@ -291,7 +285,7 @@ None
 
 ##### Usage
 ```python
->>> from excel import Excel
+>>> from excelstyleskit import Excel
 >>> excel = Excel('path/to/file.xlsx')
 >>> excel.get_worksheet()
 <openpyxl.worksheet.worksheet.Worksheet object>
@@ -306,7 +300,7 @@ None
 
 ##### Usage
 ```python
->>> from excel import Excel
+>>> from excelstyleskit import Excel
 >>> excel = Excel('path/to/file.xlsx')
 >>> excel.get_table()
 <excelstyleskit.table.Table object>
@@ -320,7 +314,7 @@ None
 
 ##### Usage
 ```python
->>> from excel import Excel
+>>> from excelstyleskit import Excel
 >>> excel = Excel('path/to/file.xlsx')
 >>> excel.save_work()
 ```
@@ -336,7 +330,7 @@ Set the background color of the header of the table.
 
 ##### Usage
 ```python
->>> from excel import Excel
+>>> from excelstyleskit import Excel
 >>> excel = Excel('path/to/file.xlsx')
 >>> excel.set_background_color_header('FFFFFF', 'FFFFFF')
 ```
@@ -352,7 +346,7 @@ Set the background color of the content of the table.
 
 ##### Usage
 ```python
->>> from excel import Excel
+>>> from excelstyleskit import Excel
 >>> excel = Excel('path/to/file.xlsx')
 >>> excel.set_background_color_content('FFFFFF', 'FFFFFF')
 ```
@@ -368,7 +362,7 @@ Return the background color of the cell.
 
 ##### Usage
 ```python
->>> from excel import Excel, Cell
+>>> from excelstyleskit import Excel, Cell
 >>> excel = Excel('path/to/file.xlsx')
 >>> excel.get_background_color_cell(Cell('A', 1))
 'FFFFFF'
@@ -391,7 +385,7 @@ Set the font of the header of the table.
 
 ##### Usage
 ```python
->>> from excel import Excel
+>>> from excelstyleskit import Excel
 >>> excel = Excel('path/to/file.xlsx')
 >>> excel.set_font_header('Arial', 10, True, False, 'superscript', 'single', True, 'FFFF0000')
 ```
@@ -413,7 +407,7 @@ Set the font of the content of the table.
 
 ##### Usage
 ```python
->>> from excel import Excel
+>>> from excelstyleskit import Excel
 >>> excel = Excel('path/to/file.xlsx')
 >>> excel.set_font_content('Arial', 10, True, False, 'superscript', 'single', True, 'FFFF0000')
 ```
@@ -429,7 +423,7 @@ Return the font of the cell.
 
 ##### Usage
 ```python
->>> from excel import Excel, Cell
+>>> from excelstyleskit import Excel, Cell
 >>> excel = Excel('path/to/file.xlsx')
 >>> excel.get_font_cell(Cell('A', 1))
 <openpyxl.styles.font.Font object>
@@ -450,7 +444,7 @@ Set the alignment of the header of the table.
 
 ##### Usage
 ```python
->>> from excel import Excel
+>>> from excelstyleskit import Excel
 >>> excel = Excel('path/to/file.xlsx')
 >>> excel.set_alignment_header('left', 'center', 0, True, True, 1)
 ```
@@ -470,7 +464,7 @@ Set the alignment of the content of the table.
 
 ##### Usage
 ```python
->>> from excel import Excel
+>>> from excelstyleskit import Excel
 >>> excel = Excel('path/to/file.xlsx')
 >>> excel.set_alignment_content('left', 'center', 0, True, True, 1)
 ```
@@ -486,7 +480,7 @@ Return the alignment of the cell.
 
 ##### Usage
 ```python
->>> from excel import Excel, Cell
+>>> from excelstyleskit import Excel, Cell
 >>> excel = Excel('path/to/file.xlsx')
 >>> excel.get_alignment_cell(Cell('A', 1))
 <openpyxl.styles.alignment.Alignment object>
@@ -503,7 +497,7 @@ Set the border of the header of the table.
 
 ##### Usage
 ```python
->>> from excel import Excel
+>>> from excelstyleskit import Excel
 >>> excel = Excel('path/to/file.xlsx')
 >>> excel.set_border_header('000000', 'thin')
 ```
@@ -519,7 +513,7 @@ Set the border of the content of the table.
 
 ##### Usage
 ```python
->>> from excel import Excel
+>>> from excelstyleskit import Excel
 >>> excel = Excel('path/to/file.xlsx')
 >>> excel.set_border_content('000000', 'thin')
 ```
@@ -535,7 +529,7 @@ Return the border of the cell.
 
 ##### Usage
 ```python
->>> from excel import Excel, Cell
+>>> from excelstyleskit import Excel, Cell
 >>> excel = Excel('path/to/file.xlsx')
 >>> excel.get_border_cell(Cell('A', 1))
 <openpyxl.styles.border.Border object>
@@ -551,7 +545,7 @@ Set the height of the row header of the table.
 
 ##### Usage
 ```python
->>> from excel import Excel
+>>> from excelstyleskit import Excel
 >>> excel = Excel('path/to/file.xlsx')
 >>> excel.set_height_row_header(12.75)
 ```
@@ -566,7 +560,7 @@ Set the height of the row content of the table.
 
 ##### Usage
 ```python
->>> from excel import Excel
+>>> from excelstyleskit import Excel
 >>> excel = Excel('path/to/file.xlsx')
 >>> excel.set_height_row_content(12.75)
 ```
@@ -582,7 +576,7 @@ Return the height of the row of a cell.
 
 ##### Usage
 ```python
->>> from excel import Excel, Cell
+>>> from excelstyleskit import Excel, Cell
 >>> excel = Excel('path/to/file.xlsx')
 >>> excel.get_height_row_cell(Cell('A', 1))
 12.75
@@ -598,7 +592,7 @@ Set the width of the column of the table.
 
 ##### Usage
 ```python
->>> from excel import Excel
+>>> from excelstyleskit import Excel
 >>> excel = Excel('path/to/file.xlsx')
 >>> excel.set_width_column_table(15)
 ```
@@ -614,7 +608,7 @@ Return the width of the column of a cell.
 
 ##### Usage
 ```python
->>> from excel import Excel, Cell
+>>> from excelstyleskit import Excel, Cell
 >>> excel = Excel('path/to/file.xlsx')
 >>> excel.get_width_column_cell(Cell('A', 1))
 11.53
