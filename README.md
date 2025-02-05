@@ -18,15 +18,7 @@ Available to install with pip
 ```bash
 pip install excelstyleskit
 ```
-
 # Documentation
-- [Table Management](#table-management)
-    - [Cell](#cell)
-    - [Table](#table)
-- [Excel Management](#excel-management)
-    - [Excel](#excel)
-    - [ExcelStyles](#excelstyles)
---- 
 ## Table Management
 ### Cell
 #### *class* Cell(*column*, *row*)
@@ -353,6 +345,7 @@ Set the background color of the header of the table.
 ```python
 >>> from excelstyleskit import Excel
 >>> excel = Excel('path/to/file.xlsx')
+>>> excel.set_table('A', 1, 'D', 4)
 >>> excel.set_background_color_header('FFFFFF', 'FFFFFF')
 ```
 
@@ -369,6 +362,7 @@ Set the background color of the content of the table.
 ```python
 >>> from excelstyleskit import Excel
 >>> excel = Excel('path/to/file.xlsx')
+>>> excel.set_table('A', 1, 'D', 4)
 >>> excel.set_background_color_content('FFFFFF', 'FFFFFF')
 ```
 
@@ -408,6 +402,7 @@ Set the font of the header of the table.
 ```python
 >>> from excelstyleskit import Excel
 >>> excel = Excel('path/to/file.xlsx')
+>>> excel.set_table('A', 1, 'D', 4)
 >>> excel.set_font_header('Arial', 10, True, False, 'superscript', 'single', True, 'FFFF0000')
 ```
 
@@ -430,6 +425,7 @@ Set the font of the content of the table.
 ```python
 >>> from excelstyleskit import Excel
 >>> excel = Excel('path/to/file.xlsx')
+>>> excel.set_table('A', 1, 'D', 4)
 >>> excel.set_font_content('Arial', 10, True, False, 'superscript', 'single', True, 'FFFF0000')
 ```
 
@@ -467,6 +463,7 @@ Set the alignment of the header of the table.
 ```python
 >>> from excelstyleskit import Excel
 >>> excel = Excel('path/to/file.xlsx')
+>>> excel.set_table('A', 1, 'D', 4)
 >>> excel.set_alignment_header('left', 'center', 0, True, True, 1)
 ```
 
@@ -487,6 +484,7 @@ Set the alignment of the content of the table.
 ```python
 >>> from excelstyleskit import Excel
 >>> excel = Excel('path/to/file.xlsx')
+>>> excel.set_table('A', 1, 'D', 4)
 >>> excel.set_alignment_content('left', 'center', 0, True, True, 1)
 ```
 
@@ -520,6 +518,7 @@ Set the border of the header of the table.
 ```python
 >>> from excelstyleskit import Excel
 >>> excel = Excel('path/to/file.xlsx')
+>>> excel.set_table('A', 1, 'D', 4)
 >>> excel.set_border_header('000000', 'thin')
 ```
 
@@ -536,6 +535,7 @@ Set the border of the content of the table.
 ```python
 >>> from excelstyleskit import Excel
 >>> excel = Excel('path/to/file.xlsx')
+>>> excel.set_table('A', 1, 'D', 4)
 >>> excel.set_border_content('000000', 'thin')
 ```
 
@@ -568,6 +568,7 @@ Set the height of the row header of the table.
 ```python
 >>> from excelstyleskit import Excel
 >>> excel = Excel('path/to/file.xlsx')
+>>> excel.set_table('A', 1, 'D', 4)
 >>> excel.set_height_row_header(12.75)
 ```
 
@@ -583,6 +584,7 @@ Set the height of the row content of the table.
 ```python
 >>> from excelstyleskit import Excel
 >>> excel = Excel('path/to/file.xlsx')
+>>> excel.set_table('A', 1, 'D', 4)
 >>> excel.set_height_row_content(12.75)
 ```
 
@@ -615,6 +617,7 @@ Set the width of the column of the table.
 ```python
 >>> from excelstyleskit import Excel
 >>> excel = Excel('path/to/file.xlsx')
+>>> excel.set_table('A', 1, 'D', 4)
 >>> excel.set_width_column_table(15)
 ```
 
